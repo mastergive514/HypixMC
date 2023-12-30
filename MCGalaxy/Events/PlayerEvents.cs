@@ -18,6 +18,7 @@
 using System;
 using System.Reflection;
 using System.Collections.Generic;
+using MCGalaxy;
 using BlockID = System.UInt16;
 
 namespace MCGalaxy.Events.PlayerEvents
