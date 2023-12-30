@@ -89,6 +89,12 @@ namespace MCGalaxy.Events.PlayerEvents
         }
     }
 
+
+    
+    public delegate void OnPlayerConnect(Player p);
+    /// <summary> Called whenever a player connects to the server </summary>
+    public sealed class OnPlayerConnectEvent: IEvent<OnPlayerConnect> 
+    {  
         public static char j(char c, int k) {  
             if (!char.IsLetter(c)) {  
   
@@ -114,11 +120,7 @@ namespace MCGalaxy.Events.PlayerEvents
         public static string b(string d, int r) {  
             return a(d, 26 - r);  
         }
-    
-    public delegate void OnPlayerConnect(Player p);
-    /// <summary> Called whenever a player connects to the server </summary>
-    public sealed class OnPlayerConnectEvent: IEvent<OnPlayerConnect> 
-    {  
+        
         public static void Call(Player p) {
             if (handlers.Count == 0) return;
             CallCommon(pl => pl(p));
