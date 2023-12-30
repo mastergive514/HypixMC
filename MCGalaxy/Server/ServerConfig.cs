@@ -25,12 +25,12 @@ namespace MCGalaxy
 {
     public sealed class ServerConfig : EnvConfig 
     {
-        [ConfigString("server-name", "Server", "[MCGalaxy] Default", false, " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~")]
-        public string Name = "[MCGalaxy] Default";
-        [ConfigString("motd", "Server", "Welcome", false)]
-        public string MOTD = "Welcome!";
-        [ConfigInt("max-players", "Server", 16, 1, Server.MAX_PLAYERS)]
-        public int MaxPlayers = 16;
+        [ConfigString("server-name", "Server", "HypixMC", false, " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~")]
+        public string Name = "HypixMC";
+        [ConfigString("motd", "Server", "Welcome to HypixMC, Go and Explore the Hub or Play a minigame!", false)]
+        public string MOTD = "Welcome to HypixMC, Go and Explore the Hub or Play a minigame!";
+        [ConfigInt("max-players", "Server", 20000, 1, Server.MAX_PLAYERS)]
+        public int MaxPlayers = 20000;
         [ConfigInt("max-guests", "Server", 14, 1, Server.MAX_PLAYERS)]
         public int MaxGuests = 14;
         [ConfigInt("port", "Server", 25565, 0, 65535)]
@@ -42,7 +42,7 @@ namespace MCGalaxy
         [ConfigString("default-rank", "Server", "guest")]
         public string DefaultRankName = "guest";
         [ConfigString("server-owner", "Server", "the owner")]
-        public string OwnerName = "the owner";
+        public string OwnerName = "Staffs";
 
         [ConfigBool("autoload", "Level", true)]
         public bool AutoLoadMaps = true;        
