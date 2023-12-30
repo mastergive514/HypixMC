@@ -16,6 +16,7 @@
     permissions and limitations under the Licenses.
  */
 using System;
+using System.Reflection;
 using System.Collections.Generic;
 using BlockID = System.UInt16;
 
