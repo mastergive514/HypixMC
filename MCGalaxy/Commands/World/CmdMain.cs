@@ -16,6 +16,7 @@
     permissions and limitations under the Licenses.
  */
 using System;
+using MCGalaxy;
 
 using MCGalaxy.Games;
 
@@ -30,25 +31,25 @@ namespace MCGalaxy.Commands.World {
         public override CommandAlias[] Aliases {
             get { return new[] { new CommandAlias("WMain"), new CommandAlias("WorldMain") }; }
         }
+        
+        Random random = new Random();
+        string[] hublvls = { "hub", "hub2", "hub3", "hub5", "hub4" };
 
         public override void Use(Player p, string message, CommandData data) {
             if (message.Length == 0) {
                 if (p.IsSuper) {
                     p.Message("Main level is {0}", Server.mainLevel.ColoredName);
-                } else if (p.level == Server.mainLevel) {
+                } 
+                
+                Level hublvl = LevelInfo.FindExact(random.Next(hublvls.Length));
+                
+                else if (p.level == hublvl) {
                     if (!IGame.CheckAllowed(p, "use &T/Main")) return;
                     PlayerActions.Respawn(p);
-                } else {
-                            
-                            string[] hublvls = { "hub", "hub2", "hub3", "hub5", "hub4" };
-
-                            
-                            Random random = new Random();
-                            int index = random.Next(hublvls.Length);
-                            string sellvl = hublvls[index];
-
-                           
-                            PlayerActions.ChangeMap(p, sellvl);
+                } 
+                
+                else {    
+                    PlayerActions.ChangeMap(p, hublvl);
                 }
             } else {
                 if (!CheckExtraPerm(p, data, 1)) return;
