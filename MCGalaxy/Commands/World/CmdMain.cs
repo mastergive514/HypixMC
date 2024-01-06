@@ -52,7 +52,7 @@ namespace MCGalaxy.Commands.World {
                 else {    
                     PlayerActions.ChangeMap(p, hublvl);
                 }
-            } else {
+                else {
                 if (!CheckExtraPerm(p, data, 1)) return;
                 if (!Formatter.ValidMapName(p, message)) return;
                 if (!LevelInfo.Check(p, data.Rank, Server.mainLevel, "set main to another map")) return;
