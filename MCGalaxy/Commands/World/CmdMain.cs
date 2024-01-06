@@ -40,8 +40,9 @@ namespace MCGalaxy.Commands.World {
                 if (p.IsSuper) {
                     p.Message("Main level is {0}", Server.mainLevel.ColoredName);
                 } 
-                
-                Level hublvl = LevelInfo.FindExact(random.Next(hublvls.Length));
+
+                int index = random.Next(hublvls)
+                Level hublvl = LevelInfo.FindExact(hublvls[index]);
                 
                 else if (p.level == hublvl) {
                     if (!IGame.CheckAllowed(p, "use &T/Main")) return;
