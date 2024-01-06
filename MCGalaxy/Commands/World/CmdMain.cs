@@ -39,6 +39,7 @@ namespace MCGalaxy.Commands.World {
             if (message.Length == 0) {
                 if (p.IsSuper) {
                     p.Message("Main level is {0}", Server.mainLevel.ColoredName);
+                    }
                 } 
 
                 int index = random.Next(hublvls);
@@ -68,7 +69,6 @@ namespace MCGalaxy.Commands.World {
                 p.Message("Set main level to {0}", 
                           LevelInfo.GetConfig(map).Color + map);
             }
-        }
         }
         
         public override void Help(Player p) {
