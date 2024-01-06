@@ -17,7 +17,6 @@
  */
 using System;
 using MCGalaxy;
-
 using MCGalaxy.Games;
 
 namespace MCGalaxy.Commands.World {
@@ -39,21 +38,17 @@ namespace MCGalaxy.Commands.World {
             if (message.Length == 0) {
                 if (p.IsSuper) {
                     p.Message("Main level is {0}", Server.mainLevel.ColoredName);
-                    }
-                } 
-
-                int index = random.Next(hublvls);
-                Level hublvl = LevelInfo.FindExact(hublvls[index]);
-                
-                else if (p.level == hublvl) {
-                    if (!IGame.CheckAllowed(p, "use &T/Main")) return;
-                    PlayerActions.Respawn(p);
-                } 
-                
-                else {    
-                    PlayerActions.ChangeMap(p, hublvl);
                 }
-                else {
+                return;
+            } 
+
+            int index = random.Next(hublvls.Length);
+            Level hublvl = LevelInfo.FindExact(hublvls[index]);
+            
+            if (p.level == hublvl) {
+                if (!IGame.CheckAllowed(p, "use &T/Main")) return;
+                PlayerActions.Respawn(p);
+            } else {    
                 if (!CheckExtraPerm(p, data, 1)) return;
                 if (!Formatter.ValidMapName(p, message)) return;
                 if (!LevelInfo.Check(p, data.Rank, Server.mainLevel, "set main to another map")) return;
@@ -66,8 +61,7 @@ namespace MCGalaxy.Commands.World {
                 Server.Config.MainLevel = map; 
                 SrvProperties.Save();
                 
-                p.Message("Set main level to {0}", 
-                          LevelInfo.GetConfig(map).Color + map);
+                p.Message("Set main level to {0}", LevelInfo.GetConfig(map).Color + map);
             }
         }
         
@@ -79,3 +73,4 @@ namespace MCGalaxy.Commands.World {
         }
     }
 }
+
