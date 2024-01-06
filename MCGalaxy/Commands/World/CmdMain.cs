@@ -69,6 +69,7 @@ namespace MCGalaxy.Commands.World {
                           LevelInfo.GetConfig(map).Color + map);
             }
         }
+        }
         
         public override void Help(Player p) {
             p.Message("&T/Main");
