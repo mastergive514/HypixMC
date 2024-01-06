@@ -41,7 +41,7 @@ namespace MCGalaxy.Commands.World {
                     p.Message("Main level is {0}", Server.mainLevel.ColoredName);
                 } 
 
-                int index = random.Next(hublvls)
+                int index = random.Next(hublvls);
                 Level hublvl = LevelInfo.FindExact(hublvls[index]);
                 
                 else if (p.level == hublvl) {
