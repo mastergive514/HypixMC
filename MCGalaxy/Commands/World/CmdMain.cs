@@ -37,7 +37,16 @@ namespace MCGalaxy.Commands.World {
                     if (!IGame.CheckAllowed(p, "use &T/Main")) return;
                     PlayerActions.Respawn(p);
                 } else {
-                    PlayerActions.ChangeMap(p, Server.mainLevel);
+                            
+                            string[] hublvls = { "hub", "hub2", "hub3", "hub5", "hub4" };
+
+                            
+                            Random random = new Random();
+                            int index = random.Next(hublvls.Length);
+                            string sellvl = hublvls[index];
+
+                           
+                            PlayerActions.ChangeMap(p, sellvl);
                 }
             } else {
                 if (!CheckExtraPerm(p, data, 1)) return;
